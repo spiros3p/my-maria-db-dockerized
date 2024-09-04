@@ -2,9 +2,7 @@ services:
   mariadb:
     image: mariadb:11.5.2
     restart: always
-    env_file:
-      - path: ./.env
-        required: true
+    env_file: ./.env
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PWD}
       - MARIADB_USER=${DB_USER}
@@ -20,9 +18,7 @@ services:
   phpmyadmin:
     image: phpmyadmin:latest
     restart: always
-    env_file:
-      - path: ./.env
-        required: true
+    env_file: ./.env
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306

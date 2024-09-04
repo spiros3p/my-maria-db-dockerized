@@ -1,0 +1,47 @@
+services:
+  mariadb:
+    image: mariadb:11.5.2
+    restart: always
+    env_file:
+      - path: ./.env
+        required: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PWD}
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_USER_PWD}
+      # - MARIADB_DATABASE=${DB_DB}
+    expose:
+      - 3306
+    # ports:
+    #   - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    env_file:
+      - path: ./.env
+        required: true
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_PORT=3306
+      - VIRTUAL_HOST=${DB_UI_DOMAIN}
+      - VIRTUAL_PORT=${DB_UI_PORT}
+      - LETSENCRYPT_HOST=${DB_UI_DOMAIN}
+      - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
+    expose:
+      - ${DB_UI_PORT}
+    depends_on:
+      - mariadb
+    # ports:
+    #   - "8080:80"
+
+volumes:
+  db_data:
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

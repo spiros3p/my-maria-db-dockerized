@@ -5,10 +5,10 @@ services:
     env_file: ./.env
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_ROOT_PWD}
-      - MARIADB_ROOT_HOST=mariadb
-      # - MARIADB_USER=${DB_USER}
-      # - MARIADB_PASSWORD=${DB_USER_PWD}
-      # - MARIADB_DATABASE=${DB_DB}
+      - MARIADB_ROOT_HOST=%
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_USER_PWD}
+     # - MARIADB_DATABASE=${DB_DB}
     expose:
       - 3306
     # ports:

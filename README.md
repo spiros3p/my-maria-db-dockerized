@@ -3,7 +3,6 @@
 - mariadb
 - phpmyadmin
 
----
 
 ## MySQL commands
 

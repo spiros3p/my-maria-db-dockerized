@@ -23,6 +23,7 @@ services:
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306
+      - UPLOAD_LIMIT=60M
       # - MYSQL_ROOT_PASSWORD=${DB_ROOT_PWD}
       - VIRTUAL_HOST=${DB_UI_DOMAIN}
       - VIRTUAL_PORT=${DB_UI_PORT}

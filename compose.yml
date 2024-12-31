@@ -26,11 +26,11 @@ services:
       - UPLOAD_LIMIT=60M
       # - MYSQL_ROOT_PASSWORD=${DB_ROOT_PWD}
       - VIRTUAL_HOST=${DB_UI_DOMAIN}
-      - VIRTUAL_PORT=${DB_UI_PORT}
+      - VIRTUAL_PORT=8080
       - LETSENCRYPT_HOST=${DB_UI_DOMAIN}
       - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
     expose:
-      - ${DB_UI_PORT}
+      - 8080
     depends_on:
       - mariadb
     # ports:

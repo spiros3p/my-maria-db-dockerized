@@ -7,10 +7,13 @@
 ## MySQL commands
 
 - create new user    
-`CREATE USER 'user'@'%' IDENTIFIED BY 'password';`
+`CREATE USER 'myUser'@'%' IDENTIFIED BY 'myPassword';`
+
+- create new database     
+`CREATE DATABASE dbName;`
 
 - grant privilages     
-`GRANT ALL PRIVILEGES ON database.* TO 'user'@'%';`
+`GRANT ALL PRIVILEGES ON dbName.* TO 'myUser'@'%';`
 
 ## Managing DB
 
